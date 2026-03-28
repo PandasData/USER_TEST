@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.oracletest.mapper.UserMapper">
+
+    <!-- 表名全大写 -->
+    <select id="findById" resultType="User">
+        SELECT * FROM TEST_USER WHERE id = #{id}
+    </select>
+
+    <select id="findAll" resultType="User">
+        SELECT * FROM TEST_USER
+    </select>
+
+    <insert id="insert">
+        INSERT INTO TEST_USER(id,name,age)
+        VALUES(#{id},#{name},#{age})
+    </insert>
+
+    <update id="update">
+        UPDATE TEST_USER
+        SET name=#{name}, age=#{age}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TEST_USER WHERE id=#{id}
+    </delete>
+
+</mapper>
